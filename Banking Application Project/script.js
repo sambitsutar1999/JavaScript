@@ -64,7 +64,7 @@ const displayMovements = function (movements) {
         <div class="movement__type movement__type--${type}">
             ${i + 1} ${type}</div>
         <div class="movement__date">3 Days Ago</div>
-        <div class="movement__value">${mov} EUR</div>
+        <div class="movement__value">${mov.toFixed(2)} EUR</div>
     </div>`
 
         containerMovements.insertAdjacentHTML('afterbegin', html)
@@ -93,13 +93,13 @@ const calcDisplaySummary = function (acc) {
         .filter(mov => mov > 0)
         .reduce((acc, mov) => acc + mov, 0)
 
-    labelSumIn.textContent = `${income} EUR`
+    labelSumIn.textContent = `${income.toFixed(2)} EUR`
 
     const out = acc.movements
         .filter(mov => mov < 0)
         .reduce((acc, mov) => acc + mov, 0)
 
-    labelSumOut.textContent = `${out} EUR`
+    labelSumOut.textContent = `${Math.abs(out).toFixed(2)} EUR`
 
     const interest = acc.movements
         .filter(mov => mov > 0)
@@ -201,7 +201,7 @@ inputCloseUsername.value = inputClosePin.value = "";
 //Loan Request
 btnLoan.addEventListener("click",function(e){
     e.preventDefault();
-    const amount = Number(inputLoanAmount.value);
+    const amount = Math.floor(inputLoanAmount.value);
     if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)){
         currentAccount.movements.push(amount)
         updateUI(currentAccount)
