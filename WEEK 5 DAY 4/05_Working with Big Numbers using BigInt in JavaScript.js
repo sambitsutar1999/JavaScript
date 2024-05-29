@@ -1,3 +1,14 @@
+/*Using `BigInt` in JavaScript allows you 
+to work with numbers beyond the typical `Number` range, 
+which is limited to `Number.MAX_SAFE_INTEGER` and `Number.MIN_SAFE_INTEGER`. 
+Here's a basic overview of how you can use BigInt: */
+
+
+
+
+
+
+
 // Working with Big Numbers
 console.log(2**53 +1);
 console.log(Number.MAX _SAFE_INTEZER);
