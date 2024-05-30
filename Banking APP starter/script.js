@@ -81,19 +81,28 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // Functions
 
-const displayMovements = function (movements, sort = false) {
+const displayMovements = function (acc, sort = false) {
   containerMovements.innerHTML = '';
 
-  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+  const movs = acc.movements;
 
   movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
+    const date = new Date(acc.movementsDates[i]);
+    console.log(date);
+    labelDate.textContent = date;
+    const day = `${date.getDate()}`.padStart(2, 0);
+const month = `${date.getMonth()}`.padStart(2, 0);
+const year = date.getFullYear();
+const hours = `${date.getHours()}`.padStart(2, 0);
+const minutes = `${date.getMinutes()}`.padStart(2, 0);
+
     const html = `
       <div class="movements__row">
-        <div class="movements__type movements__type--${type}">${
-      i + 1
-    } ${type}</div>
+        <div class="movements__type movements__type--${type}">${i + 1
+      } ${type}</div>
+      <div class="movements__date">${dateLebel}</div>
         <div class="movements__value">${mov}€</div>
       </div>
     `;
@@ -142,7 +151,7 @@ createUsernames(accounts);
 
 const updateUI = function (acc) {
   // Display movements
-  displayMovements(acc.movements);
+  displayMovements(acc);
 
   // Display balance
   calcDisplayBalance(acc);
@@ -155,6 +164,16 @@ const updateUI = function (acc) {
 // Event handlers
 let currentAccount;
 
+//Fake login for developement
+currentAccount = account1;
+containerApp.style.opacity = 100;
+updateUI(currentAccount);
+
+
+
+labelDate.textContent = `${day} / ${month} / ${year} , ${hours} : ${minutes}`
+
+
 btnLogin.addEventListener('click', function (e) {
   // Prevent form from submitting
   e.preventDefault();
@@ -166,9 +185,8 @@ btnLogin.addEventListener('click', function (e) {
 
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
     // Display UI and message
-    labelWelcome.textContent = `Welcome back, ${
-      currentAccount.owner.split(' ')[0]
-    }`;
+    labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]
+      }`;
     containerApp.style.opacity = 100;
 
     // Clear input fields
