@@ -1,7 +1,7 @@
 const now = new Date();
 console.log(now);
 
-const intDate = new Intl.DateTimeFormat('syr-SY').format(now);
+const aDate = new Intl.DateTimeFormat('syr-SY').format(now);
 console.log(intDate)
 
 const options = {
@@ -12,5 +12,5 @@ const options = {
     weekday: "long",
     year: "numeric"
 }
-const intDate = new Intl.DateTimeFormat('en-US', options).format(now);
+const bDate = new Intl.DateTimeFormat('en-US', options).format(now);
 console.log(intDate)
