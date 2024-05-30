@@ -91,16 +91,14 @@ const formatMovementDate = function (date, locale) {
   if (daysPassed === 1) return 'Yesterday';
   if (daysPassed <= 7) return `${daysPassed} days ago`;
   else {
-    // const day = '${date.getDate()}'.padStart(2, 0);
-    // const month = '${date.getMonth() + 1}'.padStart(2, 0);
-    // const year = date.getFullYear();
+    const day = '${date.getDate()}'.padStart(2, 0);
+    const month = '${date.getMonth() + 1}'.padStart(2, 0);
+    const year = date.getFullYear();
 
-    // return '${day} / ${month}/ ${year};
+    return '${day} / ${month}/ ${year};
     return new Intl.DateTimeFormat(locale).format(date)
   }
 };
-
-
 
 const displayMovements = function (acc, sort = false) {
   containerMovements.innerHTML = '';
@@ -113,13 +111,11 @@ const displayMovements = function (acc, sort = false) {
     const date = new Date(acc.movementsDates[i]);
     console.log(date);
     labelDate.textContent = date;
-    const day = `${date.getDate()}`.padStart(2, 0);
-    const month = `${date.getMonth()}`.padStart(2, 0);
-    const year = date.getFullYear();
+
     // const hours = `${date.getHours()}`.padStart(2, 0);
     // const minutes = `${date.getMinutes()}`.padStart(2, 0);
 
-    const dateLebel = `${day} / ${month} / ${year}`
+    const dateLebel = formatMovementDate(date)
 
     const html = `
       <div class="movements__row">
@@ -187,10 +183,10 @@ const updateUI = function (acc) {
 // Event handlers
 let currentAccount;
 
-//Fake login for developement
-currentAccount = account1;
-containerApp.style.opacity = 100;
-updateUI(currentAccount);
+// //Fake login for developement
+// currentAccount = account1;
+// containerApp.style.opacity = 100;
+// updateUI(currentAccount);
 
 
 btnLogin.addEventListener('click', function (e) {
@@ -208,6 +204,8 @@ btnLogin.addEventListener('click', function (e) {
       }`;
 
     const dateNow = new Date();
+
+    
 
     const options = {
       hour: "numeric",
