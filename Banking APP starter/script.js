@@ -156,7 +156,7 @@ const calcDisplaySummary = function (acc) {
   const out = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumOut.textContent = formatCurrency(Math.abs(out)toFixed(2),acc.locale,acc.currency);
+  labelSumOut.textContent = formatCurrency(Math.abs(out).toFixed(2),acc.locale,acc.currency);
 
 
   const interest = acc.movements
