@@ -82,10 +82,10 @@ const inputClosePin = document.querySelector('.form__input--pin');
 // Functions
 
 // Function For Currency
-const formatCurrency = function(value,locale,currency){
-  return new.Intl.NumberFormat(locale,{
+const formatCurrency = function (value, locale, currency) {
+  return new.Intl.NumberFormat(locale, {
     style: "currency",
-    currency:currency
+    currency: currency
   }).format(value)
 }
 
@@ -131,10 +131,10 @@ const displayMovements = function (acc, sort = false) {
         <div class="movements__type movements__type--${type}">${i + 1
       } ${type}</div>
       <div class="movements__date">${dateLebel}</div>
-        <div class="movements__value">${new Intl.NumberFormat(acc.locale,{
-          style:"currency"
-          currency:acc.currency
-        }).format(mov)}</div>
+        <div class="movements__value">${new Intl.NumberFormat(acc.locale, {
+        style: "currency"
+          currency: acc.currency
+      }).format(mov)}</div>
       </div>
     `;
 
@@ -144,19 +144,19 @@ const displayMovements = function (acc, sort = false) {
 
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = formatCurrency(acc.balance,acc.locale,acc.currency);
+  labelBalance.textContent = formatCurrency(acc.balance, acc.locale, acc.currency);
 };
 
 const calcDisplaySummary = function (acc) {
   const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumIn.textContent = formatCurrency(incomes.toFixed(2),acc.locale,acc.currency);
+  labelSumIn.textContent = formatCurrency(incomes.toFixed(2), acc.locale, acc.currency);
 
   const out = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumOut.textContent = formatCurrency(Math.abs(out).toFixed(2),acc.locale,acc.currency);
+  labelSumOut.textContent = formatCurrency(Math.abs(out).toFixed(2), acc.locale, acc.currency);
 
 
   const interest = acc.movements
@@ -167,7 +167,7 @@ const calcDisplaySummary = function (acc) {
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
-  labelSumInterest.textContent = formatCurrency(interest.toFixed(2),acc.locale,acc.currency);
+  labelSumInterest.textContent = formatCurrency(interest.toFixed(2), acc.locale, acc.currency);
 };
 
 const createUsernames = function (accs) {
@@ -180,6 +180,32 @@ const createUsernames = function (accs) {
   });
 };
 createUsernames(accounts);
+
+//log Out Timer
+
+const startLogoutTimer = function () {
+  const tick = (function () {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const second = String(time % 60).padStart(2, 0);
+
+    labelTimer.textContent = `${min}:${second}`
+
+    time--
+
+    if (time === 0) {
+      clearInterval(timer)
+      labelWelcome.textContent = "Login to get started"
+      containerApp.style.opacity = 0;
+    }
+  }, 1000)
+  //Update the time On UI afteer every second
+  // Stop the timer on 0 second and logout the user
+  //decrese timer
+  //call the timer after every 1 second
+  let time = 120;
+  tick()
+  const timer = setInterval(tick, 1000);
+}
 
 const updateUI = function (acc) {
   // Display movements
@@ -218,7 +244,7 @@ btnLogin.addEventListener('click', function (e) {
 
     const dateNow = new Date();
 
-    
+
 
     const options = {
       hour: "numeric",
@@ -236,6 +262,8 @@ btnLogin.addEventListener('click', function (e) {
     // Clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
+
+    startLogoutTimer()
 
     // Update UI
     updateUI(currentAccount);
@@ -274,13 +302,13 @@ btnLoan.addEventListener('click', function (e) {
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     // Add movement
-   setTimeout(()=>{
-    currentAccount.movements.push(amount);
-    currentAccount.movementsDates.push(new Date().toISOString());
+    setTimeout(() => {
+      currentAccount.movements.push(amount);
+      currentAccount.movementsDates.push(new Date().toISOString());
 
-    // Update UI
-    updateUI(currentAccount);
-   },5000)
+      // Update UI
+      updateUI(currentAccount);
+    }, 5000)
   }
   inputLoanAmount.value = '';
 });
