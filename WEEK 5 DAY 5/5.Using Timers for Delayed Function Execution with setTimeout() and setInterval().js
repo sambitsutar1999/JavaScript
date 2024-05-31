@@ -12,3 +12,11 @@ const PizzaTRimer = setTimeout((ing1,ing2) =>{
 if(ing.includes('olives')){
   clearTimeout(PizzaTRimer)
 }
+
+
+//Set Interval
+
+setInterval(()=>{
+    const now = newDate();
+    console.log(now)
+},1000)

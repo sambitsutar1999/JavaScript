@@ -274,11 +274,13 @@ btnLoan.addEventListener('click', function (e) {
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     // Add movement
+   setTimeout(()=>{
     currentAccount.movements.push(amount);
     currentAccount.movementsDates.push(new Date().toISOString());
 
     // Update UI
     updateUI(currentAccount);
+   },5000)
   }
   inputLoanAmount.value = '';
 });
