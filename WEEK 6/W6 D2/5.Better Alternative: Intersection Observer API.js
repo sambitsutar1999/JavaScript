@@ -2,7 +2,6 @@ const nav = document.querySelector('.nav');
 const section1 = document.querySelector('#section--1');
 
 //THEORY
-Sticky navigation: Intersection API
 
 const obsCallback = function(entries,observer){
     entries.forEach(entry => console.log(entry));
