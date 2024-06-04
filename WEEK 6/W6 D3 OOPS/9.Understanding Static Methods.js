@@ -28,7 +28,7 @@ class personcl {
     }
 }
 
-const rohit = new personcl('Rohit Singh',1999)
+const rohit = new personcl('Rohit Singh', 1999)
 console.log(rohit)
 
 //calling static method
