@@ -5,7 +5,7 @@
 
 // Class Declaration
 class personcl {
-    constructor(firstName.birthYear){
+    constructor(firstName,birthYear){
     this.firstName = firstName;
     this.birthYear = birthYear
     }
@@ -19,16 +19,16 @@ class personcl {
 }
 
 const sambit = new personcl('Sambit',1999);
-console.log(rohit);
+console.log(sambit);
 
 //console.log(rohit.__proto__);
-console.log(rohit.__proto__ === personcl.prototype)
+console.log(sambit.__proto__ === personcl.prototype)
 
-rohit calcAge();
+sambit.calcAge();
 
 personcl.prototype.greet = 
 
-rohit.greet();
+sambit.greet();
 
 //Classes are not hoisted
 //Classes are also first class citizen in js
