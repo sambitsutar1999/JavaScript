@@ -8,7 +8,7 @@ const person = function(firstname,lastname,birthYear){
     this.birthYear = birthYear;
 
     //Don't do this
-    this calcAge = function(){
+    this.calcAge = function(){
         console.log(2024 - this.birthYear)
     }
 }
@@ -32,6 +32,6 @@ riya.calcAge();
 const sam = "sam";
 
 console.log(ryan instanceof person);
-console.log(sam instanceof person;)
+console.log(sam instanceof person);
 
 
