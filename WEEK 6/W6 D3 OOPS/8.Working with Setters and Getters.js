@@ -1,5 +1,5 @@
 // Getter & Setter
-const account {
+const account = {
     owner: 'Arjit',
     movements: [2000, 400, 4, 899, 766],
     get latest(){
