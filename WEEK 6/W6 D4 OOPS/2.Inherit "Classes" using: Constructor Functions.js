@@ -13,15 +13,28 @@ ketan.calcAge()
 
 
 const Student = function (firstName, birthYear, course) {
-    this.firstName = firstName;
-    this.birthYear = birthYear;
+    // this.firstName = firstName;
+    // this.birthYear = birthYear;
+    Person.call(this,firstName,birthYear)
     this.course = course;
 }
+
+Student.prototype = Object.create(Person.prototype);
 
 Student.prototype.introduce = function () {
     console.log(`Hey i am ${this.firstNameame} and I study ${this.course}`)
 }
 
 const mohan = new Student('Mohan', 1998, 'B.Tech in CS');
-console.log(mohan)
+
 mohan.introduce()
+console.log(mohan)
+
+
+
+
+console.log(mohan.__prototype__);
+console.log(mohan.__proto__.__proto__)
+console.log(mohan instanceof Student)
+console.log(mohan instanceof Person)
+console.log(mohan instance of Object)
