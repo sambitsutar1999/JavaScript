@@ -37,4 +37,4 @@ console.log(mohan.__prototype__);
 console.log(mohan.__proto__.__proto__)
 console.log(mohan instanceof Student)
 console.log(mohan instanceof Person)
-console.log(mohan instance of Object)
+console.log(mohan instanceof Object)
