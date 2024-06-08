@@ -24,12 +24,12 @@ lotteryPromise.then(res => console.log(res)).catch(err => console.log(err))
 const lotteryPromise = new Promise(function (resolve, reject) {
     console.log("Lottery Draw is Taking place")
     setTimeout(() => {
-    if (Math.random() > 0.5) {
-        resolve('You Won')
-    } else {
-        reject(new Error("You Lost Your Money"))
-    }
-},2000)
+        if (Math.random() > 0.5) {
+            resolve('You Won')
+        } else {
+            reject(new Error("You Lost Your Money"))
+        }
+    }, 2000)
 })
 lotteryPromise.then(res => console.log(res)).catch(err => console.error(err))
 
@@ -45,35 +45,35 @@ lotteryPromise.then(res => console.log(res)).catch(err => console.error(err))
 
 //Promisify setTimeout
 
-const wait = function(seconds){
-    return new Promise(function(resolve){
-        setTimeout(resolve,seconds * 1000)
+const wait = function (seconds) {
+    return new Promise(function (resolve) {
+        setTimeout(resolve, seconds * 1000)
     })
 }
 
-wait(2).then(()=>{
+wait(2).then(() => {
     console.log(' 1 second passed');
-        return wait(1)
-    
-}).then(()=>{
+    return wait(1)
+
+}).then(() => {
     console.log('2 second passed')
     return wait(1)
-}).then(()=>{
+}).then(() => {
     console.log('3 second passed')
     return wait(1)
-}).then(()=>{
+}).then(() => {
     console.log('4 second passed')
     return wait(1)
-}).then(()=>{
+}).then(() => {
     console.log('5 second passed')
     return wait(1)
-}).then(()=>{
+}).then(() => {
     console.log('6 second passed')
     return wait(1)
-}).then(()=>{
+}).then(() => {
     console.log('7 second passed')
     return wait(1)
-}).then(()=>{
+}).then(() => {
     console.log('8 second passed')
     return wait(1)
 })
