@@ -1,0 +1,7 @@
+Jquery:-
+It is a javascript library.
+
+Used for making the websites interactive or used to add some dynamic
+nature to the website.
+
+Jquery - Animations,Manipulate DOM,....
