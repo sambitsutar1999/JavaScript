@@ -1,0 +1,12 @@
+.box1, .box2, .box3{
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+}
+.container{
+    display: flex;
+    width: 800px;
+    height: 500px;
+    background-color: goldenrod;
+}
