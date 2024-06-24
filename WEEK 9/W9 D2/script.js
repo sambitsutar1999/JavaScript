@@ -67,19 +67,46 @@
 
 //   ----------------Animate Using Parameters---------------
 
+// $(function(){
+//     $(".box3").animate({
+//         marginLeft: "300px",
+//         width: "400px",
+//         height: "500px",
+//         opacity: 0.3
+//     },5000,"swing")
+
+
+//     $(".box2").animate({
+//         marginLeft: "300px",
+//         width: "400px",
+//         height: "500px",
+//         opacity: 0.3
+//     },5000,"linear")
+// })
+
+
+
+
+
+// ----------------------How to Delay and Chain Animations----------------------
+
+// $(function(){
+//     $(".box1").fadeTo(2000, 0.2)
+//     $(".box2").delay(4000).fadeTo(2000, 0.2)
+//     $(".box3").delay(4000).fadeTo(2000, 0.2)
+    
+// })
+
+
+
+// ----------------Implement Timing Animations---------------
+
 $(function(){
-    $(".box3").animate({
-        marginLeft: "300px",
-        width: "400px",
-        height: "500px",
-        opacity: 0.3
-    },5000,"swing")
+    $(".box1").fadeTo(1000, 0.5, function()
+    {
+        $(".box2").fadeTo(2000, 0.3, function(){
+            $(".box3").fadeTo(3000, 0.1)
+        })
+    })
 
-
-    $(".box2").animate({
-        marginLeft: "300px",
-        width: "400px",
-        height: "500px",
-        opacity: 0.3
-    },5000,"linear")
 })
