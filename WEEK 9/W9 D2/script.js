@@ -36,17 +36,50 @@
 // })
 
 
+// $(function(){
+//     // $(".box1").slideUp(5000)
+//     // $(".box2").slideUp(5000)
+//     // $(".box3").slideUp(5000)
+
+//     // $(".box1").slideDown(5000)
+//     // $(".box2").slideDown(5000)
+//     // $(".box3").slideDown(5000)
+
+//     $(".box3").slideToggle(5000)
+
+
+
+// })
+
+// $(function(){
+//     $(".box3").animate({
+//         "margin-left": "300px"
+//     },5000)
+
+//     $(".box2").animate({
+//         "margin-left": "400px"
+//     },5000)
+
+//     $(".box1").animate({
+//         "margin-left": "500px"
+//     },5000)
+// })
+
+//   ----------------Animate Using Parameters---------------
+
 $(function(){
-    // $(".box1").slideUp(5000)
-    // $(".box2").slideUp(5000)
-    // $(".box3").slideUp(5000)
-
-    // $(".box1").slideDown(5000)
-    // $(".box2").slideDown(5000)
-    // $(".box3").slideDown(5000)
-
-    $(".box3").slideToggle(5000)
+    $(".box3").animate({
+        marginLeft: "300px",
+        width: "400px",
+        height: "500px",
+        opacity: 0.3
+    },5000,"swing")
 
 
-
+    $(".box2").animate({
+        marginLeft: "300px",
+        width: "400px",
+        height: "500px",
+        opacity: 0.3
+    },5000,"linear")
 })
