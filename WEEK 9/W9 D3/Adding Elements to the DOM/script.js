@@ -22,4 +22,24 @@ $(function(){
     // $("<h1>I am from insertBefore Method</h1>").insertBefore("#myol")
 
 
+
+
+
+//------------------------------Update Elements and Content---------------------------
+
+// Replacing Element from the DOM
+
+
+    // $("#myp").replaceWith("<a href='https://www.facebook.com' target='_blank'>Click Here</a>")
+
+    // $("#myol").replaceWith("<ul><li>ORANGE</li></ul>")
+
+    // $("li").replaceWith("<h1>Hello world</h1>")
+
+
+    $("<a href='https://www.facebook.com' target='_blank'>Click Here</a>").replaceAll("#myp")
+
+
+    //The Difference between replaceWith() and replaceAll is, replaceWith() will take content as the argument.
+    // whereas replaceAll() will take selector as the arguent.
 })
