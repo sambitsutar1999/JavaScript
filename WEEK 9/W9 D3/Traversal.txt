@@ -1,0 +1,10 @@
+Traversing -:
+Moving from one HTML element to another HTML element present inside a DOM Tree.
+
+                                DOM Tree
+                     HEAD                        BODY
+
+                     TITLE                         DIV
+                                    H1              P               UL
+                                     
+                                                        li[1]    li[2]      li[3]       li[4]
