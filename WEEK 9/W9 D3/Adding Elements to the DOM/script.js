@@ -37,9 +37,19 @@ $(function(){
     // $("li").replaceWith("<h1>Hello world</h1>")
 
 
-    $("<a href='https://www.facebook.com' target='_blank'>Click Here</a>").replaceAll("#myp")
+    // $("<a href='https://www.facebook.com' target='_blank'>Click Here</a>").replaceAll("#myp")
 
 
     //The Difference between replaceWith() and replaceAll is, replaceWith() will take content as the argument.
     // whereas replaceAll() will take selector as the arguent.
+
+
+
+
+
+    // ------------------------------------------Delete Elements and Content--------------------------------
+
+    // $("#container").remove()
+
+    $("#container").empty()
 })
