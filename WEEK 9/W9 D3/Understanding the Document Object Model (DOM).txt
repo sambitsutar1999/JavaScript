@@ -1,0 +1,3 @@
+DOM:
+    --> It basically stands for Document Object Model.
+    --> DOM is a tree of Objects/HTML elements. 

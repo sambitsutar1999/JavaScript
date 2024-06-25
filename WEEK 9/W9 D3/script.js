@@ -1,3 +1,5 @@
+//--------------------jQuery Traversal Methods - 2--------------------
+
 $(function(){
     // $("#myh1").next().css({backgroundColor: "blue"})
 
@@ -18,4 +20,17 @@ $(function(){
     // $("li").parents().css({"color": "green", "fontSize": "40px"})
 
     // $("#myul").children().css({"color": "green", "fontSize": "40px"})
+})
+
+
+// ----------------jQuery Filtering Methods----------------------
+
+$(function(){
+    $("h1").first().css("color", "green")
+
+    $("h1").last().css("color", "red")
+
+    $("h1").eq(1).css("color", "blue")
+
+    $("div").filter("#seconddiv").css("color", "cyan")
 })
