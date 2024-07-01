@@ -1,37 +1,37 @@
-const nav = document.querySelector('.nav');
-const section1 = document.querySelector('#section--1');
+// const nav = document.querySelector('.nav');
+// const section1 = document.querySelector('#section--1');
 
-//THEORY
+// //THEORY
 
-const obsCallback = function(entries,observer){
-    entries.forEach(entry => console.log(entry));
-}
+// const obsCallback = function(entries,observer){
+//     entries.forEach(entry => console.log(entry));
+// }
 
-const obsOptions = {
-    root:null,thesold:0.1
-}
+// const obsOptions = {
+//     root:null,thesold:0.1
+// }
 
-const observer = new IntersectionObserver(obsCallback,obsOptions);
+// const observer = new IntersectionObserver(obsCallback,obsOptions);
 
-observer.observe(section1);
+// observer.observe(section1);
 
 
-//PRACTICAL IMPLIMENT IN BANKING WEBSITE
-const header = document.querySelector('.header');
+// //PRACTICAL IMPLIMENT IN BANKING WEBSITE
+// const header = document.querySelector('.header');
 
-const stickNav = function (entries) {
-    const [entry] = entries;
+// const stickNav = function (entries) {
+//     const [entry] = entries;
 
-    entries.forEach(entry => console.log(entry))
+//     entries.forEach(entry => console.log(entry))
 
-    if (!entry.isIntersecting) nav.classList.add('sticky');
-    else nav.classList.remove('sticky');
+//     if (!entry.isIntersecting) nav.classList.add('sticky');
+//     else nav.classList.remove('sticky');
 
-}
+// }
 
-const headerObserver = new IntersectionObserver(stickNav,{
-    root: null,
-    threshold:0
-})
+// const headerObserver = new IntersectionObserver(stickNav,{
+//     root: null,
+//     threshold:0
+// })
 
-headerObserver.observe(header)
+// headerObserver.observe(header)
